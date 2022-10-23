@@ -1,9 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mokriydoshch.first_homework">
    <application
-        android:label="first_homework"
+        android:label="FirstHomework"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@drawable/favicon">
         <activity
             android:name=".MainActivity"
             android:exported="true"
