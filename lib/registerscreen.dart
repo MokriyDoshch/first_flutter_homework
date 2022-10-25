@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'package:sqflite/sqflite.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -29,22 +28,17 @@ class _RegisterScreen extends State<RegisterScreen> {
   }
 
   Future<Map<String, String>> getDataFromDataBase() async {
-    //await Future.delayed(const Duration(seconds: 3), () {});
     Map<String, String> dataFromDataBase = {};
-    //final SharedPreferences pref = await _pref;
     await _pref.then((SharedPreferences pref) {
       if(pref.containsKey('login')) {
         dataFromDataBase['login'] = pref.getString('login')!;
       }
-      //dataFromDataBase['login'] = 'admin';
       if(pref.containsKey('password')) {
         dataFromDataBase['password'] = pref.getString('password')!;
       }
-      //dataFromDataBase['password'] = '123456';
       if(pref.containsKey('authorized')) {
         dataFromDataBase['authorized'] = pref.getString('authorized')!;
       }
-      //dataFromDataBase['authorized'] = 'false';
     });
 
     return dataFromDataBase;
@@ -52,23 +46,15 @@ class _RegisterScreen extends State<RegisterScreen> {
 
   Future<void> setDataToDataBase(
       String login, String password, bool authorized) async {
-    //await Future.delayed(const Duration(seconds: 3), () {});
-    //final SharedPreferences pref = await _pref;
     await _pref.then((SharedPreferences pref) {
       pref.setString('login', login);
       pref.setString('password', password);
       pref.setString('authorized', rememberFlag.toString());
     });
-
-    //Map<String, String> dataToDataBase = {};
-    //dataToDataBase['login'] = login;
-    //dataToDataBase['password'] = password;
-    //dataToDataBase['authorized'] = authorized.toString();
   }
 
   void checkData() async {
     Map<String, String> dataFromDataBase = await getDataFromDataBase();
-    //Fluttertoast.showToast(msg: dataFromDataBase.toString(),gravity: ToastGravity.BOTTOM);
     if(dataFromDataBase.isNotEmpty) {
       if(dataFromDataBase.containsKey('authorized')) {
         if(dataFromDataBase['authorized'] == 'true') {
