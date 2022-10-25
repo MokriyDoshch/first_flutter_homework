@@ -15,7 +15,7 @@ class _HomeScreen extends State<HomeScreen> {
         title: const Text("Home Screen"),
       ),
       body: const Center(
-        child: Text("hello"),
+        child: Text("Вітаю!"),
       ),
     );
   }
